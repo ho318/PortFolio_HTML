@@ -1,0 +1,449 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrap::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 10;
+}
+header .inner {
+  width: 1652px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+}
+header .inner h1 {
+  position: absolute;
+  width: 300px;
+  height: 120px;
+  margin-left: 60px;
+}
+header .inner h1 a img {
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+}
+header .inner nav ul {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0px 40px;
+}
+header .inner nav ul li {
+  margin-left: 100px;
+  font: bold 24px/1 "arial";
+}
+header .inner nav ul li a {
+  position: relative;
+  display: block;
+  padding: 10px 0px;
+  color: #fff;
+}
+header .inner nav ul li a:hover {
+  color: red;
+}
+header .inner nav ul li a:hover::before {
+  transform: scaleX(100%);
+}
+header .inner nav ul li a::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 10px;
+  border-bottom: 3px solid #E91231;
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  transform: scaleX(0%);
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+main .panel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+main .panel li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 1s;
+}
+main .panel li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main .panel li.on {
+  opacity: 1;
+  z-index: 2;
+}
+
+#image {
+  width: 100%;
+  height: 100%;
+}
+#image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#ADVERTISE {
+  width: 100%;
+  padding: 200px 30px 100px;
+  background-color: #fff;
+}
+#ADVERTISE .inner {
+  width: 1180px;
+  height: 1180px;
+  margin: 0 auto;
+}
+#ADVERTISE .inner .title {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+#ADVERTISE .inner .title h1 {
+  font: bold 30px/1 "arial";
+  color: #555;
+  top: -30px;
+  left: 0;
+  margin-bottom: 50px;
+}
+#ADVERTISE .inner .title p {
+  font: bold 15px/1 "arial";
+  color: #777;
+  margin-left: 20px;
+}
+#ADVERTISE .inner .wrap {
+  width: 100%;
+  height: 100%;
+}
+#ADVERTISE .inner .wrap article {
+  float: left;
+  width: 580px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+#ADVERTISE .inner .wrap article:nth-of-type(2) {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+#ADVERTISE .inner .wrap article:nth-of-type(4) {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+#ADVERTISE .inner .wrap article .pic {
+  width: 100%;
+  height: 500px;
+  margin: 0px auto;
+  overflow: hidden;
+}
+#ADVERTISE .inner .wrap article .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.2s linear;
+}
+#ADVERTISE .inner .wrap article .pic img:hover {
+  transform: scale(1.1);
+}
+
+.youtube {
+  margin-top: 50px;
+}
+.youtube .inner .vidList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.youtube .inner .vidList article {
+  width: 48%;
+  height: 100%;
+  margin-bottom: 40px;
+}
+.youtube .inner .vidList article .pic {
+  display: block;
+  width: 100%;
+  height: 60%;
+  padding: 10px;
+}
+.youtube .inner .vidList article .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 10px solid #000;
+}
+.youtube .inner .vidList article .con {
+  width: 100%;
+  height: 40%;
+  padding: 10px;
+}
+.youtube .inner .vidList article .con h2 {
+  font: bold 20px/1.2 "맑은 고딕";
+  color: #444;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  padding: 0 0 150px;
+}
+.content .inner {
+  width: 1180px;
+  margin: 0 auto;
+  min-height: 500px;
+}
+.content .inner h1 {
+  font: italic 50px/1 "Anton";
+  color: #000;
+  margin-bottom: 60px;
+  padding: 10px;
+}
+.content .inner h1 span {
+  font: normal 30px/0.8 "맑은 고딕";
+  color: #aaa;
+  position: absolute;
+  margin-bottom: 11px;
+}
+.content .inner h1 span::before {
+  content: "/";
+  font-size: 50px;
+  margin-right: 20px;
+  margin-left: 40px;
+}
+
+.pop {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  padding: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pop .btnClose {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.SNS {
+  padding: 150px 0px;
+  height: 1280px;
+}
+.SNS .SNS_header {
+  display: flex;
+  padding-bottom: 30px;
+  width: 90%;
+  margin: 0px auto;
+  max-width: 1280px;
+  place-content: center space-between;
+}
+.SNS .SNS_header h2 {
+  font: bold 40px/1 "Alfa Slab One";
+}
+.SNS .SNS_header .SNS_company {
+  display: flex;
+  place-content: center space-between;
+  gap: 20px;
+}
+.SNS .SNS_header .SNS_company .SNS_instagram .instagram {
+  width: 130px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  font: italic 18px/1 "PartialSansKR-Regular";
+  background-color: #bbb;
+  color: #666;
+  cursor: pointer;
+}
+.SNS .SNS_header .SNS_company .SNS_instagram .instagram.on {
+  background-color: rgb(0, 101, 195);
+  color: #fff;
+}
+.SNS .SNS_header .SNS_company .SNS_twitter .twitter {
+  width: 130px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  font: italic 18px/1 "PartialSansKR-Regular";
+  background-color: #bbb;
+  color: #666;
+  cursor: pointer;
+}
+.SNS .SNS_header .SNS_company .SNS_twitter .twitter.on {
+  background-color: rgb(0, 101, 195);
+  color: #fff;
+}
+.SNS .SNS_BODY {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0px auto;
+}
+.SNS .SNS_BODY .instagram {
+  display: flex;
+  width: 1280px;
+  height: 0;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px 70px;
+}
+.SNS .SNS_BODY .instagram a {
+  position: relative;
+  width: 20%;
+}
+.SNS .SNS_BODY .instagram a img {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  opacity: 0;
+  transform: scale(0);
+}
+.SNS .SNS_BODY .instagram.active a img {
+  opacity: 1;
+  transform: scale(1);
+  display: block;
+}
+.SNS .SNS_BODY .twitter {
+  display: flex;
+  width: 1280px;
+  height: 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px 70px;
+}
+.SNS .SNS_BODY .twitter a {
+  position: relative;
+  width: 20%;
+}
+.SNS .SNS_BODY .twitter a img {
+  display: none;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  opacity: 0;
+  transform: scale(0);
+}
+.SNS .SNS_BODY .twitter::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.SNS .SNS_BODY .twitter.active a img {
+  opacity: 1;
+  transform: scale(1);
+  display: block;
+}
+
+#footer {
+  width: 100%;
+  padding: 100px 0;
+  background: #444;
+}
+#footer .inner {
+  width: 1180px;
+  margin: 0 auto;
+}
+#footer .inner::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#footer .inner .terms {
+  width: 100%;
+  display: flex;
+}
+#footer .inner .terms ul {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.75rem;
+  margin: 10px 0px;
+}
+#footer .inner .terms ul li {
+  display: flex;
+}
+#footer .inner .terms ul li a {
+  font: bold 14px/1 "arial";
+  color: #fff;
+  margin-right: 20px;
+}
+#footer .inner .introduction {
+  float: left;
+  width: 100%;
+  font: 14px/1.3 "arial";
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #888;
+}
+#footer .inner .introduction ul {
+  display: flex;
+}
+#footer .inner .introduction ul li {
+  margin-right: 20px;
+}
+#footer .inner p {
+  width: 100%;
+  font: 12px/1 "arial";
+  color: #fff;
+}
+
+@font-face {
+  font-family: "PartialSansKR-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*# sourceMappingURL=style.css.map */
