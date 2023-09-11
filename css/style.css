@@ -511,7 +511,7 @@ body {
 }
 
 .main_sub {
-  width: 100%;
+  width: 80%;
   height: 60vh;
   margin: 0 auto;
 }
@@ -533,6 +533,9 @@ body {
   border: 1px solid #000;
   margin-bottom: 20px;
 }
+.location #map .markers {
+  width: 310px;
+}
 .location::after {
   content: "";
   display: block;
@@ -549,36 +552,30 @@ body {
   display: block;
   width: 200px;
   height: 40px;
-  background-color: #555;
+  background-color: #fff;
   font: bold 12px/40px "맑은 고딕";
-  color: #fff;
+  color: #333;
   text-align: center;
   border: 1px solid #555;
 }
 .location .traffic li.on a {
-  background-color: #fff;
-  color: #333;
-}
-.location .branch {
-  float: right;
-}
-.location .branch li {
-  float: left;
-  margin-left: 10px;
-}
-.location .branch li a {
-  display: block;
-  width: 200px;
-  height: 40px;
   background-color: #555;
-  font: bold 12px/40px "맑은 고딕";
   color: #fff;
-  text-align: center;
-  border: 1px solid #555;
 }
-.location .branch li.on a {
-  background-color: #fff;
-  color: #333;
+
+.content {
+  width: 100%;
+  padding: 0 0 150px;
+}
+.content .inner {
+  width: 1180px;
+  margin: 0 auto;
+  min-height: 500px;
+}
+.content .inner > h2 {
+  font: italic 50px/1 "anton";
+  color: #000;
+  margin: 100px 0px 20px;
 }
 
 #footer {

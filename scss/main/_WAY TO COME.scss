@@ -1,5 +1,5 @@
 .main_sub {
-    width: 100%;
+    width: 80%;
     height: 60vh;
     margin: 0 auto;
 
@@ -23,6 +23,10 @@
         height: 500px;
         border: 1px solid #000;
         margin-bottom: 20px;
+
+        .markers {
+            width: 310px;
+        }
     }
 
     &::after {
@@ -42,46 +46,34 @@
                 display: block;
                 width: 200px;
                 height: 40px;
-                background-color: #555;
+                background-color: #fff;
                 font: bold 12px/40px "맑은 고딕";
-                color: #fff;
+                color: #333;
                 text-align: center;
                 border: 1px solid #555;
             }
 
             &.on {
                 a {
-                    background-color: #fff;
-                    color: #333;
+                    background-color: #555;
+                    color: #fff;
                 }
             }
         }
     }
+}
 
-    .branch {
-        float: right;
-
-        li {
-            float: left;
-            margin-left: 10px;
-
-            a {
-                display: block;
-                width: 200px;
-                height: 40px;
-                background-color: #555;
-                font: bold 12px/40px "맑은 고딕";
-                color: #fff;
-                text-align: center;
-                border: 1px solid #555;
-            }
-
-            &.on {
-                a {
-                    background-color: #fff;
-                    color: #333;
-                }
-            }
-        }
-    }
+.content {
+	width: 100%;
+	padding: 0 0 150px;
+	.inner {
+		width: 1180px;
+		margin: 0 auto;
+		min-height: 500px;
+		>h2 {
+			font: italic 50px/1 "anton";
+			color: #000;
+			margin: 100px 0px 20px; 
+		}
+	}
 }

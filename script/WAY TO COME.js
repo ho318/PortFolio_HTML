@@ -4,65 +4,40 @@ const t_on = document.querySelectorAll(".traffic li")[0];
 //교통정보를 끄게하는 버튼
 const t_off = document.querySelectorAll(".traffic li")[1];
 
-//branch버튼 
-const branch_btns = document.querySelectorAll(".branch li");
-
-
 var options = { //지도를 생성할 때 필요한 기본 옵션
-	center: new kakao.maps.LatLng(37.4868352, 126.7830001), //지도의 중심좌표.
+	center: new kakao.maps.LatLng(37.5077011, 127.0620054), //지도의 중심좌표.
 	level: 3 //지도의 레벨(확대, 축소 정도)
 };
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
-//객체배열에는 각 마커의 이미지경로, 크기, 위치, 이름, 위도경도,
-//마커와 매치할 버튼의 인덱스등의 정보를 담을것
-var markerOptions = [{
-    title : "본점",
-    latlng : new kakao.maps.LatLng(37.4868352, 126.7830001),
-    imgSrc : "img/marker1.png",
-    imgSize : new kakao.maps.Size(232, 99),
-    imgPos : {offset: new kakao.maps.Point(116, 69)},
-    button : branch_btns[0]
-},{
-    title : "지점1",
-    latlng : new kakao.maps.LatLng(37.579617, 126.977041),
-    imgSrc : "img/marker2.png",
-    imgSize : new kakao.maps.Size(232, 99),
-    imgPos : {offset: new kakao.maps.Point(116, 69)},
-    button : branch_btns[1]
-},{
-    title : "지점2",
-    latlng : new kakao.maps.LatLng(36.3727807, 127.3536125),
-    imgSrc : "img/marker3.png",
-    imgSize : new kakao.maps.Size(232, 99),
-    imgPos : {offset: new kakao.maps.Point(116, 69)},
-    button : branch_btns[2]
-}]
+// 마커가 표시될 위치입니다 
+var markerPosition  = new kakao.maps.LatLng(37.5077011, 127.0620054); 
 
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+    position: markerPosition
+});
 
-for (let i = 0; i < markerOptions.length; i++){
-    new kakao.maps.Marker({
-        map : map,  //앞에 map은 Marker라는 매소드의 프로퍼티이고
-        //뒤에 map은 위에서 지도를 생성하는 메소드를 변수에 넣은 값
-        position : markerOptions[i].latlng,
-        //지도의 위치 즉 위도경도값을 객체변수에서 가지고옵니다
-        title : markerOptions[i].title,
-        image : new kakao.maps.MarkerImage(markerOptions[i].imgSrc,
-             markerOptions[i].imgSize, markerOptions[i].imgPos)
-    })
-    // branch_btns[2]
-    markerOptions[i].button.addEventListener("click",(e)=>{
-        e.preventDefault();
-        for(let k =0; k<markerOptions.length; k++){
-            markerOptions[k].button.classList.remove("on");
-        }
-        markerOptions[i].button.classList.add("on");
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
 
-        map.setCenter(markerOptions[i].latlng);
+// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+var iwContent = '<div class="markers" style="padding:30px;">서울 강남구 테헤란로98길 8, 14층<br><a href="https://map.kakao.com/link/map/서울 강남구 테헤란로98길 8 14층,37.5077011,127.0620054" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/서울 강남구 테헤란로98길 8 14층,37.5077011, 127.0620054" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
-    })
-}
+// 인포윈도우를 생성합니다
+var infowindow = new kakao.maps.InfoWindow({
+    content : iwContent,
+    removable : iwRemoveable
+});
+
+// 마커에 클릭이벤트를 등록합니다
+kakao.maps.event.addListener(marker, 'click', function() {
+      // 마커 위에 인포윈도우를 표시합니다
+      infowindow.open(map, marker);  
+});
+
 
 t_on.addEventListener("click",(e)=>{
     e.preventDefault();
@@ -87,24 +62,6 @@ t_off.classList.add("on");
 t_on.classList.remove("on");
 })
 
-
-// var imageSrc = 'img/marker1.png', // 마커이미지의 주소입니다    
-//     imageSize = new kakao.maps.Size(232, 99), // 마커이미지의 크기입니다
-//     imageOption = {offset: new kakao.maps.Point(116, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-      
-// // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-// var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-//     markerPosition = new kakao.maps.LatLng(37.4868352, 126.7830001); // 마커가 표시될 위치입니다
-
-// // 마커를 생성합니다
-// var marker = new kakao.maps.Marker({
-//     position: markerPosition, 
-//     image: markerImage // 마커이미지 설정 
-// });
-
-// 마커가 지도 위에 표시되도록 설정합니다
-// marker.setMap(map);  
-
 // 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
 var mapTypeControl = new kakao.maps.MapTypeControl();
 
@@ -114,4 +71,4 @@ map.addControl(mapTypeControl, kakao.maps.ControlPosition.BOTTOMRIGHT);
 
 // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 var zoomControl = new kakao.maps.ZoomControl();
-map.addControl(zoomControl, kakao.maps.ControlPosition.LEFT);
+map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
