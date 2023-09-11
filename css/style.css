@@ -26,30 +26,29 @@ body {
   overflow-x: hidden;
 }
 
-header {
+#header_sub {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
   z-index: 10;
 }
-header .inner {
+#header_sub .inner {
   width: 1652px;
   height: 120px;
   margin: 0 auto;
   position: relative;
 }
-header .inner h1 {
+#header_sub .inner h1 {
   position: absolute;
   width: 300px;
   height: 120px;
   margin-left: 60px;
 }
-header .inner h1 a img {
+#header_sub .inner h1 a img {
   width: 70%;
   height: 100%;
   object-fit: cover;
 }
-header .inner nav ul {
+#header_sub .inner nav ul {
   display: flex;
   position: absolute;
   right: 0;
@@ -57,23 +56,23 @@ header .inner nav ul {
   transform: translateY(-50%);
   padding: 0px 40px;
 }
-header .inner nav ul li {
+#header_sub .inner nav ul li {
   margin-left: 100px;
   font: bold 24px/1 "arial";
 }
-header .inner nav ul li a {
+#header_sub .inner nav ul li a {
   position: relative;
   display: block;
   padding: 10px 0px;
   color: #fff;
 }
-header .inner nav ul li a:hover {
+#header_sub .inner nav ul li a:hover {
   color: red;
 }
-header .inner nav ul li a:hover::before {
+#header_sub .inner nav ul li a:hover::before {
   transform: scaleX(100%);
 }
-header .inner nav ul li a::before {
+#header_sub .inner nav ul li a::before {
   content: "";
   display: block;
   width: 100%;
@@ -85,17 +84,76 @@ header .inner nav ul li a::before {
   transform: scaleX(0%);
 }
 
-main {
+#header {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  z-index: 10;
+}
+#header .inner {
+  width: 1652px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+}
+#header .inner h1 {
+  position: absolute;
+  width: 300px;
+  height: 120px;
+  margin-left: 60px;
+}
+#header .inner h1 a img {
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+}
+#header .inner nav ul {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0px 40px;
+}
+#header .inner nav ul li {
+  margin-left: 100px;
+  font: bold 24px/1 "arial";
+}
+#header .inner nav ul li a {
+  position: relative;
+  display: block;
+  padding: 10px 0px;
+  color: #fff;
+}
+#header .inner nav ul li a:hover {
+  color: red;
+}
+#header .inner nav ul li a:hover::before {
+  transform: scaleX(100%);
+}
+#header .inner nav ul li a::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 10px;
+  border-bottom: 3px solid #E91231;
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  transform: scaleX(0%);
+}
+
+.main {
   width: 100%;
   height: 100vh;
   margin: 0;
 }
-main .panel {
+.main .panel {
   width: 100%;
   height: 100%;
   position: absolute;
 }
-main .panel li {
+.main .panel li {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -105,12 +163,12 @@ main .panel li {
   z-index: 1;
   transition: opacity 1s;
 }
-main .panel li img {
+.main .panel li img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-main .panel li.on {
+.main .panel li.on {
   opacity: 1;
   z-index: 2;
 }
@@ -125,67 +183,129 @@ main .panel li.on {
   object-fit: cover;
 }
 
-#ADVERTISE {
+.figure {
   width: 100%;
-  padding: 200px 30px 100px;
-  background-color: #fff;
+  height: 100vh;
+  position: relative;
 }
-#ADVERTISE .inner {
-  width: 1180px;
-  height: 1180px;
-  margin: 0 auto;
-}
-#ADVERTISE .inner .title {
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-#ADVERTISE .inner .title h1 {
-  font: bold 30px/1 "arial";
-  color: #555;
-  top: -30px;
-  left: 0;
-  margin-bottom: 50px;
-}
-#ADVERTISE .inner .title p {
-  font: bold 15px/1 "arial";
-  color: #777;
-  margin-left: 20px;
-}
-#ADVERTISE .inner .wrap {
+.figure .letter {
   width: 100%;
   height: 100%;
 }
-#ADVERTISE .inner .wrap article {
-  float: left;
-  width: 580px;
+.figure .letter h2 {
+  padding-top: 3%;
+  padding-left: 42%;
+  font: italic 50px/1 "anton";
+}
+.figure .letter span {
+  font: normal 30px/0.8 "맑은 고딕";
+  color: #aaa;
+  position: absolute;
+}
+.figure .letter span::before {
+  content: "/";
+  font-size: 50px;
   margin-right: 20px;
-  margin-bottom: 20px;
+  margin-left: 40px;
 }
-#ADVERTISE .inner .wrap article:nth-of-type(2) {
-  margin-right: 0;
-  margin-bottom: 0;
+.figure .ADVERTISE {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin-top: -160px;
+  margin-left: -200px;
 }
-#ADVERTISE .inner .wrap article:nth-of-type(4) {
-  margin-right: 0;
-  margin-bottom: 0;
-}
-#ADVERTISE .inner .wrap article .pic {
-  width: 100%;
-  height: 500px;
-  margin: 0px auto;
-  overflow: hidden;
-}
-#ADVERTISE .inner .wrap article .pic img {
+.figure .ADVERTISE ul {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: all 0.2s linear;
+  position: relative;
 }
-#ADVERTISE .inner .wrap article .pic img:hover {
-  transform: scale(1.1);
+.figure .ADVERTISE ul li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+}
+.figure .ADVERTISE ul li img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  transition: 0.5s;
+  transform: translateX(-100px) translateY(-50px);
+}
+.figure .ADVERTISE ul li:nth-of-type(1) {
+  opacity: 0;
+  transform: translateX(-880px) scale(0.5);
+}
+.figure .ADVERTISE ul li:nth-of-type(2) {
+  transform: translateX(-640px) scale(0.6);
+}
+.figure .ADVERTISE ul li:nth-of-type(3) {
+  transform: translateX(-360px) scale(0.8);
+}
+.figure .ADVERTISE ul li:nth-of-type(4) {
+  width: 800px;
+  opacity: 1;
+  transform: translateX(-100px) scale(1);
+  z-index: 10;
+}
+.figure .ADVERTISE ul li:nth-of-type(5) {
+  transform: translateX(320px) scale(0.8);
+}
+.figure .ADVERTISE ul li:nth-of-type(6) {
+  transform: translateX(560px) scale(0.6);
+  z-index: -1;
+}
+.figure .ADVERTISE ul li:nth-of-type(7) {
+  opacity: 0;
+  transform: translateX(760px) scale(0.5);
+}
+.figure .btns {
+  position: absolute;
+  bottom: 10vh;
+  right: 10vw;
+  display: flex;
+  gap: 50px;
+  transition: 0.5s;
+}
+.figure .btns div {
+  cursor: pointer;
+  width: 120px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #999;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: italic 22px/1 "anton";
+  color: #fff;
+  letter-spacing: 4px;
+}
+.figure .btns div:hover {
+  background-color: #555;
+}
+.figure .btns.off {
+  right: 5vw;
+  opacity: 0;
+  z-index: -3;
 }
 
+@media screen and (max-width: 1199px) {
+  figure .btns {
+    width: 100%;
+    bottom: 6vh;
+    right: 0;
+    justify-content: space-evenly;
+  }
+}
 .youtube {
   margin-top: 50px;
 }
@@ -267,11 +387,16 @@ main .panel li.on {
   align-items: center;
 }
 .pop .btnClose {
+  width: 46px;
+  height: 35px;
   position: absolute;
-  top: 50px;
-  right: 50px;
+  bottom: 10px;
+  right: 5%;
   color: #fff;
   cursor: pointer;
+  border: 5px solid #000;
+  background-color: #333;
+  font-family: "ANTON";
 }
 
 .SNS {
@@ -383,6 +508,77 @@ main .panel li.on {
   opacity: 1;
   transform: scale(1);
   display: block;
+}
+
+.main_sub {
+  width: 100%;
+  height: 60vh;
+  margin: 0 auto;
+}
+.main_sub img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 100px;
+  margin: 0 auto;
+  border: 5px solid #000;
+}
+
+.location {
+  width: 100%;
+}
+.location #map {
+  width: 100%;
+  height: 500px;
+  border: 1px solid #000;
+  margin-bottom: 20px;
+}
+.location::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.location .traffic {
+  float: left;
+}
+.location .traffic li {
+  float: left;
+  margin-right: 20px;
+}
+.location .traffic li a {
+  display: block;
+  width: 200px;
+  height: 40px;
+  background-color: #555;
+  font: bold 12px/40px "맑은 고딕";
+  color: #fff;
+  text-align: center;
+  border: 1px solid #555;
+}
+.location .traffic li.on a {
+  background-color: #fff;
+  color: #333;
+}
+.location .branch {
+  float: right;
+}
+.location .branch li {
+  float: left;
+  margin-left: 10px;
+}
+.location .branch li a {
+  display: block;
+  width: 200px;
+  height: 40px;
+  background-color: #555;
+  font: bold 12px/40px "맑은 고딕";
+  color: #fff;
+  text-align: center;
+  border: 1px solid #555;
+}
+.location .branch li.on a {
+  background-color: #fff;
+  color: #333;
 }
 
 #footer {

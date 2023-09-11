@@ -57,7 +57,7 @@ vidList.addEventListener("click", (e) => {
 
 
 
-    let pop = document.createElement("figure");
+    let pop = document.createElement(".figure");
     pop.classList.add("pop");
 
     pop.innerHTML = `
@@ -133,18 +133,18 @@ function rolling() {
 
 // ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ  SNS ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-const btns = document.querySelectorAll(".SNS_company div button");
+const btns_SNS = document.querySelectorAll(".SNS_company div button");
 const boxes = document.querySelectorAll(".SNS_BODY div");
-console.log(btns);
-btns.forEach((el, index)=>{
+console.log(btns_SNS);
+btns_SNS.forEach((el, index)=>{
     el.addEventListener("click",(e)=>{
         e.preventDefault();
 
         // 반복을 돌면서 btn의 on클래스를 모두 없애고
         // e.target.closest("article").classList.remove("on");
-        for(let el of btns) el.classList.remove("on");
+        for(let el of btns_SNS) el.classList.remove("on");
         // 클릭한 순번의 btn에 on을 붙이고
-        btns[index].classList.add("on");
+        btns_SNS[index].classList.add("on");
         // 반복을 돌면서 box의 on클래스를 모두 없애고
         for(let el of boxes) el.classList.remove("on");
         // 클릭한 순번의. box에 on을 붙인다.
@@ -158,3 +158,59 @@ btns.forEach((el, index)=>{
         },0)
     })
 })
+
+// ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ ADVERTISE ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+const banner_ul = document.querySelector(".ADVERTISE ul");
+const banners = banner_ul.children;
+const lis = banner_ul.querySelectorAll("li")
+console.log(banners); //HTMLCollection(7)
+console.log(lis); //NodeList(7)
+let count = 3;
+
+
+const btns_ADVERTISE = document.querySelector(".btns");
+const [prev, next] = btns_ADVERTISE.children;
+// const [변수이름1, 변수이름2] = btns.children;
+const popup = document.querySelector(".popup");
+const opens = banner_ul.querySelectorAll("a");
+
+// 초기화 작업 = 0인덱스 슬라이드가 4번째인 즉 가운데 활성화 슬라이드가 되게하기
+// 반복을 돌면서 prepend로 마지막 슬라이드를 맨앞으로 3번 한다.
+
+for(let i=0; i< count; i++ ){banner_ul.prepend(banner_ul.lastElementChild); }
+
+prev.addEventListener("click",()=>{
+    banner_ul.prepend(banner_ul.lastElementChild);
+
+    for(let el of banners) el.classList.remove("on");
+    // on 떼버리기
+    banners[3].classList.add("on");
+    // on 붙이기
+})
+
+next.addEventListener("click",()=>{
+    banner_ul.append(banner_ul.firstElementChild);
+
+    for(let el of banners) el.classList.remove("on");
+    // on 떼버리기
+    banners[3].classList.add("on");
+    // on 붙이기
+
+})
+
+// opens
+console.log(opens);
+opens.forEach((el)=>{
+    el.addEventListener("click",(e)=>{
+        e.preventDefault();
+
+        let tit = e.currentTarget.closest("li").querySelector("h2").innerText;
+        console.log(tit);
+        popup.querySelector("h2").innerText = tit;
+        popup.classList.add("on");
+        // a태그를 사라지게
+        e.currentTarget.classList.add("off");
+        // 버튼이 활성화되면 안되므로 사라지게 하는 코드.
+        btns_ADVERTISE.classList.add("off");
+    })
+}) 
